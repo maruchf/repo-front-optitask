@@ -8,11 +8,11 @@ export const Login = () => {
 		<div>
 			<div className="login-form">
 				<div className="cotainer">
-					<div className="row justify-content-center">
+					<div className="row d-flex justify-content-center">
 						<div className="col-md-8">
-							<div className="card">
-								<div className="card-header">{"Iniciar sesión"}</div>
-								<div className="card-body">
+							<div className="row">
+								<div className="row">{"Iniciar sesión"}</div>
+								<div className="row">
 									<form action="" method="">
 										<div className="form-group row">
 											<label
