@@ -1,24 +1,43 @@
-.fondo {
-    display: flex;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
+body {
+  background: url(../img/pexels-lukas-669610.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 
-    background: linear-gradient(129.93deg, #024873 13.04%, #0396A6 36.59%, #04BFAD 56.03%, #F28963 71.02%, #F25E5E 84.48%);
+}
+
+.background-card{
+  background-color: rgb(255, 255, 255);
+  border-radius: 5%;
+  
 }
 
 .titulo {
-    display: flex;
-    width: 40%;
-    height: 100%;
-    padding-left: 10%;
-    justify-content: center;
-    align-items: center;
-    
-    
+    font-family: 'Cabin', sans-serif;
+    opacity: 1 !important;
+    color:#444343;
+    font-size:calc(2em + 3vw);
+    animation-duration: 1s;
+    animation-name: slidein;
+    padding-left: 20px;
+  }
+  
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
 }
-.titulo h1 {
-    font-family: 'Balsamiq Sans', cursive;
-    color:white;
-    font-size:60px;
+
+.descripcion{
+  margin-top: 10%;
+  font-family: 'Cabin', sans-serif;
+  color: rgb(144, 146, 146);
 }
+
