@@ -5,106 +5,59 @@ export const Register = () => {
 	// const [checked, setChecked] = useState(initialState);
 	return (
 		<div>
-			<div className="register-form">
-				<div className="cotainer-fluid">
-					<div className="row justify-content-center">
-						<div className="col-md-8">
-							<div className="card">
-								<div className="card">{"Iniciar sesión"}</div>
-								<div className="card-body">
-									<form action="" method="">
-										<div className="form-group row">
-											<label
-												htmlFor="email_address"
-												className="col-md-4 col-form-label text-md-right">
-												{"Correo electrónico"}
-											</label>
-											<div className="col-md-6">
-												<input
-													type="text"
-													id="email_address"
-													className="form-control"
-													name="email-address"
-													required
-													autoFocus
-												/>
-											</div>
-										</div>
-										<div className="form-group row">
-											<label
-												htmlFor="user_name"
-												className="col-md-4 col-form-label text-md-right">
-												{"Nombre de usuario"}
-											</label>
-											<div className="col-md-6">
-												<input
-													type="user_na,e"
-													id="user_name"
-													className="form-control"
-													name="user-name"
-													required
-												/>
-											</div>
-										</div>
-										<div className="form-group row">
-											<label htmlFor="password" className="col-md-4 col-form-label text-md-right">
-												{"Contraseña"}
-											</label>
-											<div className="col-md-6">
-												<input
-													type="password"
-													id="password"
-													className="form-control"
-													name="password"
-													required
-												/>
-											</div>
-										</div>
-										<div className="form-group row">
-											<label
-												htmlFor="password-confirmed"
-												className="col-md-4 col-form-label text-md-right">
-												{"Confirma tu contraseña"}
-											</label>
-											<div className="col-md-6">
-												<input
-													type="password-confirmed"
-													id="password-confirmed"
-													className="form-control"
-													name="password-confirmed"
-													required
-												/>
-											</div>
-										</div>
-										<div className="form-group row">
-											<div className="col-md-6 offset-md-4">
-												<div className="checkbox">
-													<input
-														type="checkbox"
-														name="remember"
-														//  onChange=(checked)=>{
-														//  setChecked(checked);
-														//  onChange(id, checked);}
-													/>
-													<label>{"Recordarme"}</label>
-												</div>
-											</div>
-										</div>
-										<div>
-											<a href="#" className="btn btn-link">
-												{"¿Has olvidado tu contraseña?"}
-											</a>
-										</div>
-										<div className="col-md-6 offset-md-4">
-											<button type="submit" className="btn btn-primary">
-												{"Entrar"}
-											</button>
-											<a href="#" className="btn btn-link">
-												{"¿Eres nuevo? ¡Regístrate!"}
-											</a>
-										</div>
-									</form>
+			<div className="container d-flex justify-content-center">
+				<div className="row">
+					<div className="col-8">
+						<div className="row singup text-center">
+							<h1>Registro</h1>
+						</div>
+						<div className="row">
+							<form>
+								<div className="form-row">
+									<div className="form-group col-md-6">
+										<label forHTML="inputEmail4">Email</label>
+										<input type="email" className="form-control" id="inputEmail4" placeholder="Email">
+									</div>
+									<div className="form-group col-md-6">
+									<label forHTML="inputPassword4">Password</label>
+									<input type="password" className="form-control" id="inputPassword4" placeholder="Password">
+									</div>
 								</div>
+								<div className="form-group">
+									<label forHTML="inputAddress">Address</label>
+									<input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St">
+								</div>
+								<div className="form-group">
+									<label forHTML="inputAddress2">Address 2</label>
+									<input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+								</div>
+								<div className="form-row">
+									<div className="form-group col-md-6">
+										<label forHTML="inputCity">City</label>
+										<input type="text" className="form-control" id="inputCity">
+									</div>
+									<div className="form-group col-md-4">
+										<label forHTML="inputState">State</label>
+										<select id="inputState" className="form-control">
+											<option selected>Choose...</option>
+											<option>...</option>
+										</select>
+									</div>
+									<div className="form-group col-md-2">
+										<label forHTML="inputZip">Zip</label>
+										<input type="text" className="form-control" id="inputZip">
+									</div>
+								</div>
+								<div className="form-group">
+									<div className="form-check">
+									<input className="form-check-input" type="checkbox" id="gridCheck">
+									<label className="form-check-label" forHTML="gridCheck">
+										Check me out
+									</label>
+									</div>
+								</div>
+								<button type="submit" className="btn btn-primary">Sign in</button>
+							</form>
 							</div>
 						</div>
 					</div>
