@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../../styles/home.scss";
+import "../../styles/login.scss";
 import { Navbar } from "../component/navbar";
 
 export const Login = () => {

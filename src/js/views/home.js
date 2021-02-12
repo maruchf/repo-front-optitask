@@ -7,7 +7,7 @@ import imagen3 from "../../img/imagen3.png";
 import imagen1 from "../../img/imagen1.png";
 
 export const Home = () => (
-	<div>
+	<div className="body-home">
 		{/* ------------------------------------------------------------ */}
 		<div className="container background-card m-5 p-5">
 			<div className="row justify-content-center ">
