@@ -47,7 +47,7 @@ export const Signup = () => {
 			<div className="row justify-content-center">
 				<div className="col-8">
 					<div className="row justify-content-center">
-						<h1 className="text-center">Registro</h1>
+						<h1 className="mb-5 text-muted text-center">Registro</h1>
 					</div>
 					<div className="row mb-2 mt-2">
 						{/* Aquí inicia el formulario */}
@@ -104,20 +104,30 @@ export const Signup = () => {
 								</div>
 								{/* Pendiente construir lista de selección de País con conexión a la API
 								https://restcountries.eu/#api-endpoints-all */}
-								<div className="form-group col-6">
-									<label forHTML="cbo-country">País </label>
-									<select name="cbo-country" id="cbo-country" required>
-										<option value="">Seleccione</option>
-										{/* <!-- List Option --> */}
-									</select>
+								<div className="col-8 form-group">
+									<div className="row my-5 align-items-center">
+										<div className="col-auto">
+											<div className="form-group mb-0">
+												<label forHTML="cbo-country" className="mb-0 mr-1">
+													País{" "}
+												</label>
+												<select name="cbo-country" id="cbo-country" required>
+													<option value="">Seleccione</option>
+													{/* <!-- List Option --> */}
+												</select>
+											</div>
+										</div>
+										<div className="col-auto ml-auto">
+											<button
+												id="btnRegister"
+												type="submit"
+												className="btn btn-primary btn-lg"
+												disabled={!buttonActive}>
+												Registrar
+											</button>
+										</div>
+									</div>
 								</div>
-								<button
-									id="btnRegister"
-									type="submit"
-									className="btn btn-outline-secondary"
-									disabled={!buttonActive}>
-									Registrar
-								</button>
 							</div>
 						</form>
 						{/* Aquí termina el formulario */}
