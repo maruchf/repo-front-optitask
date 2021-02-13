@@ -1,68 +1,131 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "../../styles/signup.scss";
 
-export const Register = () => {
-	// const [checked, setChecked] = useState(initialState);
+export const Signup = () => {
+	//Declaración de funciones principales
+	//************************************/
+	//declara el estado inicial del formulario cómo vacío
+	const initialState = {
+		email: "",
+		name: "",
+		last_name: "",
+		user_name: "",
+		password2: "",
+		country: "",
+		region_state: ""
+	};
+	const [signup, setSignup] = useState(initialState);
+	const [buttonActive, setButtonActive] = useState(false);
+	//función que guarda los datos en el estado de registro a medida que son completados,
+	//cambian el estado inicial vacío a los valores
+	const changeSignUp = e => {
+		setSignup({
+			...signup,
+			[e.target.name]: e.target.value
+		});
+	};
+
+	//función para validación de contraseña1 vs confirmación de contraseña para verificar coincidencia
+	//modifica el estado del botón de registro para habilitarlo de ser coincidente
+	const validatePassword = () => {
+		if (form1.inputPasswordConfirm.value != form1.inputPassword.value) {
+			form1.inputPasswordConfirm.value = ""; //limpia campos
+			form1.inputPassword.value = ""; //limpia campos
+			form1.inputPassword.focus(); //posiciona de nuevo sobre password
+			setButtonActive(false);
+		} else {
+			setButtonActive(true);
+		}
+	};
+	//construcción previa de función para enviar data--Importante en revisión
+	const sendData = e => {
+		e.preventDefault();
+	};
+
 	return (
-		<div>
-			<div className="container d-flex justify-content-center">
-				<div className="row">
-					<div className="col-8">
-						<div className="row singup text-center">
-							<h1>Registro</h1>
-						</div>
-						<div className="row">
-							<form>
-								<div className="form-row">
-									<div className="form-group col-md-6">
-										<label forHTML="inputEmail4">Email</label>
-										<input type="email" className="form-control" id="inputEmail4" placeholder="Email">
-									</div>
-									<div className="form-group col-md-6">
-									<label forHTML="inputPassword4">Password</label>
-									<input type="password" className="form-control" id="inputPassword4" placeholder="Password">
-									</div>
+		<div className="container">
+			<div className="row justify-content-center">
+				<div className="col-8">
+					<div className="row justify-content-center">
+						<h1 className="text-center">Registro</h1>
+					</div>
+					<div className="row mb-2 mt-2">
+						{/* Aquí inicia el formulario */}
+						<form action="" name="form1" id="form1">
+							<div className="form-row justify-content-center">
+								<div className="form-group col-8">
+									<label forHTML="inputEmail">Correo electrónico</label>
+									<input
+										type="text"
+										className="form-control"
+										id="inputEmail"
+										placeholder="Ingresa un correo electrónico..."
+										name="email"
+										pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+										onChange={changeSignUp}
+										required
+									/>
 								</div>
-								<div className="form-group">
-									<label forHTML="inputAddress">Address</label>
-									<input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St">
+								<div className="form-group col-8">
+									<label forHTML="inputAddress">Nombre de usuario</label>
+									<input
+										type="text"
+										className="form-control"
+										id="inputAddress"
+										placeholder="Selecciona un nombre de usuario..."
+										onChange={changeSignUp}
+										required
+									/>
 								</div>
-								<div className="form-group">
-									<label forHTML="inputAddress2">Address 2</label>
-									<input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+								<div className="form-group col-8">
+									<label forHTML="inputPassword">Contraseña</label>
+									<input
+										type="text"
+										className="form-control"
+										id="inputPassword"
+										// pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" //revisar criterios
+										placeholder="Escribe una contraseña..."
+										name="password1"
+										required
+									/>
 								</div>
-								<div className="form-row">
-									<div className="form-group col-md-6">
-										<label forHTML="inputCity">City</label>
-										<input type="text" className="form-control" id="inputCity">
-									</div>
-									<div className="form-group col-md-4">
-										<label forHTML="inputState">State</label>
-										<select id="inputState" className="form-control">
-											<option selected>Choose...</option>
-											<option>...</option>
-										</select>
-									</div>
-									<div className="form-group col-md-2">
-										<label forHTML="inputZip">Zip</label>
-										<input type="text" className="form-control" id="inputZip">
-									</div>
+								<div className="form-group col-8">
+									<label forHTML="inputPasswordConfirm">Confirmar Contraseña</label>
+									<input
+										type="text"
+										className="form-control"
+										id="inputPasswordConfirm"
+										placeholder="Repite la contraseña anterior..."
+										name="password2"
+										onChange={changeSignUp}
+										onKeyPress={validatePassword} //revisar evento adecuado
+										required
+									/>
 								</div>
-								<div className="form-group">
-									<div className="form-check">
-									<input className="form-check-input" type="checkbox" id="gridCheck">
-									<label className="form-check-label" forHTML="gridCheck">
-										Check me out
-									</label>
-									</div>
+								{/* Pendiente construir lista de selección de País con conexión a la API
+								https://restcountries.eu/#api-endpoints-all */}
+								<div className="form-group col-6">
+									<label forHTML="cbo-country">País </label>
+									<select name="cbo-country" id="cbo-country" required>
+										<option value="">Seleccione</option>
+										{/* <!-- List Option --> */}
+									</select>
 								</div>
-								<button type="submit" className="btn btn-primary">Sign in</button>
-							</form>
+								<button
+									id="btnRegister"
+									type="submit"
+									className="btn btn-outline-secondary"
+									disabled={!buttonActive}>
+									Registrar
+								</button>
 							</div>
-						</div>
+						</form>
+						{/* Aquí termina el formulario */}
 					</div>
 				</div>
 			</div>
 		</div>
 	);
 };
+
+export default Signup;
