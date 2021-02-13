@@ -9,7 +9,7 @@ export const Login = () => {
 			<div className="form-login">
 				<div className="container bg-light">
 					<div className="row justify-content-center">
-						<div className="col-md-6 col-sm-12">
+						<div className="col-md-6 col-sm-12 mt-3 mb-3">
 							<h1>Iniciar sesión</h1>
 							<form>
 								<div className="form-group">

@@ -9,7 +9,7 @@ import imagen1 from "../../img/imagen1.png";
 export const Home = () => (
 	<div className="body-home">
 		{/* ------------------------------------------------------------ */}
-		<div className="container background-card home-margin-card">
+		<div className="container background-card mt-3">
 			<div className="row justify-content-center ">
 				<div className="col-md-6 col-sm-12 align-self-start ">
 					<h1 className="titulo">Organiza las finanzas de tu negocio con Optitask</h1>
@@ -19,14 +19,14 @@ export const Home = () => (
 				</div>
 			</div>
 		</div>
-		<div className="container home-margin-card">
+		<div className="container mt-3">
 			<div className="row justify-content-center ">
 				<div className="col-md-12 col-sm-12" />
 			</div>
 		</div>
 		{/* ------------------------------------------------------------ */}
 
-		<div className="container background-card home-margin-card">
+		<div className="container background-card mt-3">
 			<div className="row justify-content-center ">
 				<div className="col-md-6 col-sm-12 ">
 					<img src={imagen7} className="img-fluid " />
@@ -47,7 +47,7 @@ export const Home = () => (
 		</div>
 
 		{/* ------------------------------------------------------------ */}
-		<div className="container background-card home-margin-card">
+		<div className="container background-card mt-3">
 			<div className="row justify-content-center ">
 				<div className="col-md-6 col-sm-12 align-self-start ">
 					<h1 className="titulo pt-5">Organiza tus finanzas</h1>
@@ -57,7 +57,7 @@ export const Home = () => (
 					</h3>
 				</div>
 				<div className="col-md-6 col-sm-12">
-					<img src={imagen5} className="img-fluid mr-3 mt-2" />
+					<img src={imagen5} className="img-fluid mr-3 mt-3" />
 				</div>
 			</div>
 		</div>
@@ -67,7 +67,7 @@ export const Home = () => (
 			</div>
 		</div>
 		{/* ------------------------------------------------------------ */}
-		<div className="container background-card home-margin-card">
+		<div className="container background-card mt-3">
 			<div className="row justify-content-center ">
 				<div className="col-md-6 col-sm-12">
 					<img src={imagen3} className="img-fluid mr-3 mt-5" />
@@ -87,7 +87,7 @@ export const Home = () => (
 			</div>
 		</div>
 		{/* ------------------------------------------------------------ */}
-		<div className="container background-card home-margin-card">
+		<div className="container background-card mt-3 mb-3">
 			<div className="row justify-content-center ">
 				<div className="col-md-6 col-sm-12 align-self-start p-5">
 					<h1 className="titulo pt-5">Sabras en que usas tu dinero</h1>
