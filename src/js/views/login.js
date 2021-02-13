@@ -6,52 +6,52 @@ export const Login = () => {
 	// const [checked, setChecked] = useState(initialState);
 	return (
 		<div>
-			<div className="form-login">
+			<div className="form-login d-flex align-items-center">
 				<div className="container bg-light">
 					<div className="row justify-content-center">
-						<div className="col-md-6 col-sm-12 mt-3 mb-3">
-							<h1>Iniciar sesión</h1>
+						<div className="col-md-6 col-sm-12 p-5 text-center">
+							<h1 className="mb-5 text-muted">Iniciar sesión</h1>
 							<form>
 								<div className="form-group">
-									<label htmlFor="txtEmail">correo electrónico</label>
-									<input
-										className="form-control"
-										placeholder="escribe tu correo electrónico"
-										id="txtEmail"
-									/>
+									<input className="form-control" placeholder="correo electrónico" />
 								</div>
 								<div className="form-group">
-									<label htmlFor="txtPassword">contraseña</label>
-									<input
-										className="form-control"
-										placeholder="escribe tu contraseña"
-										type="password"
-										id="txtPassword"
-									/>
+									<input className="form-control" placeholder="contraseña" type="password" />
 								</div>
-								<div className="form-group">
-									<div className="checkbox">
-										<input type="checkbox" name="remember" />
-										<label>{"Recordarme"}</label>
+								<div className="row">
+									<div className="col-auto">
+										<div className="form-group">
+											<div className="checkbox">
+												<input
+													type="checkbox"
+													name="remember"
+													className="mr-1"
+													id="remember_me"
+												/>
+												<label htmlFor="remember_me">{"Recordarme"}</label>
+											</div>
+										</div>
+									</div>
+									<div className="col-auto ml-auto">
+										<a className="text-link" href="#">
+											{"¿Has olvidado tu contraseña?"}
+										</a>
 									</div>
 								</div>
-								<div>
-									<a href="#" className="btn btn-link">
-										{"¿Has olvidado tu contraseña?"}
-									</a>
-								</div>
 								<div className="form-group">
-									<button type="submit" className="btn btn-primary">
+									<button type="submit" className="btn btn-primary mt-5 btn-lg">
 										{"Entrar"}
 									</button>
-									<a href="#" className="btn btn-link">
-										{"¿Eres nuevo? ¡Regístrate!"}
-									</a>
+									<div className="mt-2">
+										<a href="#" className="text-link">
+											{"¿Eres nuevo? ¡Regístrate!"}
+										</a>
+									</div>
 								</div>
 							</form>
 						</div>
-						<div className="col-md-6 col-sm-12">
-							<img src={imagen2} className="img-fluid" />
+						<div className="col-md-6 col-sm-12 d-none d-md-block">
+							<img src={imagen2} className="img-fluid" style={{ opacity: 0.7 }} />
 						</div>
 					</div>
 				</div>

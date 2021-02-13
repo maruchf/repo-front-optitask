@@ -63,7 +63,7 @@ export const Signup = () => {
 			<div className="row justify-content-center">
 				<div className="col-8">
 					<div className="row justify-content-center">
-						<h1 className="text-center">Registro</h1>
+						<h1 className="mb-5 text-muted text-center">Registro</h1>
 					</div>
 					<div className="row mb-2 mt-2">
 						{/* Aquí inicia el formulario */}
@@ -133,13 +133,6 @@ export const Signup = () => {
 										})}
 									</select>
 								</div>
-								<button
-									id="btnRegister"
-									type="submit"
-									className="btn btn-outline-secondary"
-									disabled={!buttonActive}>
-									Registrar
-								</button>
 							</div>
 						</form>
 						{/* Aquí termina el formulario */}
