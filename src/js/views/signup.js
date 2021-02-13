@@ -5,6 +5,7 @@ export const Signup = () => {
 	//Declaración de funciones principales
 	//************************************/
 	//declara el estado inicial del formulario cómo vacío
+	const urlAPICountry = "https://restcountries.eu/rest/v2/all"; //enlace de API Cpuntry
 	const initialState = {
 		email: "",
 		name: "",
@@ -14,16 +15,31 @@ export const Signup = () => {
 		country: "",
 		region_state: ""
 	};
+	const [country, setCountry] = useState([]);
 	const [signup, setSignup] = useState(initialState);
 	const [buttonActive, setButtonActive] = useState(false);
+	//useEffect para países
+	useEffect(() => {
+		const getCountry = async url => {
+			try {
+				let response = await fetch(urlAPICountry);
+				let responseObject = await response.json();
+				setCountry(responseObject);
+				console.log(country);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		getCountry(urlAPICountry);
+	}, []);
 	//función que guarda los datos en el estado de registro a medida que son completados,
 	//cambian el estado inicial vacío a los valores
-	const changeSignUp = e => {
+	function changeSignUp(e) {
 		setSignup({
 			...signup,
 			[e.target.name]: e.target.value
 		});
-	};
+	}
 
 	//función para validación de contraseña1 vs confirmación de contraseña para verificar coincidencia
 	//modifica el estado del botón de registro para habilitarlo de ser coincidente
@@ -105,10 +121,16 @@ export const Signup = () => {
 								{/* Pendiente construir lista de selección de País con conexión a la API
 								https://restcountries.eu/#api-endpoints-all */}
 								<div className="form-group col-6">
-									<label forHTML="cbo-country">País </label>
-									<select name="cbo-country" id="cbo-country" required>
-										<option value="">Seleccione</option>
-										{/* <!-- List Option --> */}
+									<label forHTML="country">País </label>
+									<select name="country" id="country" required>
+										{country.map((country, index) => {
+											//envío información como propiedad value (desde objeto country)
+											return (
+												<option key={index} value={country}>
+													{country}
+												</option>
+											);
+										})}
 									</select>
 								</div>
 								<button
