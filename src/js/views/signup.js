@@ -132,7 +132,7 @@ export const Signup = () => {
 									</div>
 									<div className="form-group col-8">
 										<input
-											type="text"
+											type="password"
 											className="form-control"
 											id="inputPassword"
 											pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" //revisar criterios
@@ -145,7 +145,7 @@ export const Signup = () => {
 									</div>
 									<div className="form-group col-8">
 										<input
-											type="text"
+											type="password"
 											className="form-control"
 											id="inputPasswordConfirm"
 											placeholder="Confirmar contraseña..."
