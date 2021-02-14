@@ -1,0 +1,14 @@
+.form-singup {
+    height: 100vh;
+    &:before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: url(../img/pexels-lukas-669610.jpg) no-repeat center center fixed;
+      z-index: -2;
+      filter: blur(2px);
+      background-size: cover;
+    }}
