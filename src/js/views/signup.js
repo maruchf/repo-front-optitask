@@ -33,35 +33,33 @@ export const Signup = () => {
 	//--------------------------------------------------------/
 	//OBJETO-HOOK-FUNCIÓN PARA VALIDAR CONTRASEÑAS COINCIDENTES
 	//--------------------------------------------------------/
-	// //Objeto initialPassword almacenará información las contraseñas
-	// const initialPassword = {
-	// 	password1: "",
-	// 	password2: ""
-	// };
-	// //Hook de password
-	// const [passwordOriginal, setPasswordOriginal] = useState(initialPassword);
-	// //Función para guardar información de contraseñas
-	// function changePasswordO(e) {
-	// 	setPasswordOriginal({
-	// 		...passwordOriginal,
-	// 		[e.target.name]: e.target.value
-	// 	});
-	// }
-	// console.log(passwordOriginal);
-	// //Estado del botón de registro
-	// const [buttonActive, setButtonActive] = useState(false);
-	// //función valida cuando las contraseñas son idénticas y devuelve verdadero
-	// const passwordValidate = passwordOriginal => {
-	// 	if ((passwordOriginal["password1"] = passwordOriginal["password2"])) {
-	// 		setButtonActive(true); //cambia estado del botón a booleano True
-	// 	} else {
-	// 		form1.inputPasswordConfirm.value = ""; //limpia campos
-	// 		form1.inputPassword.value = ""; //limpia campos
-	// 		form1.inputPassword.focus(); //posiciona de nuevo sobre password
-	// 		setButtonActive(false); //cambia estado del botón a booleano False
-	// 	}
-	// };
-	// passwordValidate();
+	// //Hook de password y confirmación de password
+	const [passwordOriginal, setPasswordOriginal] = useState("");
+	const [passwordConfirm, setPasswordConfirm] = useState("");
+	//Función para guardar información de contraseñas
+	const changePasswordO = e => {
+		setPasswordOriginal(e.target.value);
+	};
+	const changePasswordC = e => {
+		setPasswordConfirm(e.target.value);
+	};
+	//Estado del botón de registro
+	let initialStateButton = false;
+	const [buttonActive, setButtonActive] = useState(initialStateButton);
+	//función valida cuando las contraseñas son idénticas y devuelve verdadero
+	useEffect((passwordOriginal, passwordConfirm) => {
+		const passwordValidate = (passwordOriginal, passwordConfirm) => {
+			if ((passwordOriginal = passwordConfirm)) {
+				setButtonActive(true); //cambia estado del botón a booleano True
+			} else {
+				form1.inputPasswordConfirm.value = ""; //limpia campos
+				form1.inputPassword.value = ""; //limpia campos
+				form1.inputPassword.focus(); //posiciona de nuevo sobre password
+				setButtonActive(false); //cambia estado del botón a booleano False
+			}
+		};
+		passwordValidate();
+	}, []);
 
 	//--------------------------------------------------------/
 	//OBJETO-HOOK-FUNCIÓN PARA BUSCAR PAÍS EN API
@@ -142,7 +140,7 @@ export const Signup = () => {
 											placeholder="Contraseña..."
 											name="password1"
 											required
-											// onChange={changePasswordO}
+											onChange={changePasswordO}
 										/>
 									</div>
 									<div className="form-group col-8">
@@ -152,7 +150,7 @@ export const Signup = () => {
 											id="inputPasswordConfirm"
 											placeholder="Confirmar contraseña..."
 											name="password2"
-											// onChange={changePasswordO}
+											onChange={changePasswordC}
 											//onKeyPress={passwordValidate} //revisar evento adecuado
 											required
 										/>
@@ -178,8 +176,10 @@ export const Signup = () => {
 											</ul>
 										</form>
 									</div>
-									<button className="btn btn-primary col-6 my-2 my-sm-0" type="submit">
-										{/* // disabled={buttonActive}> */}
+									<button
+										className="btn btn-primary col-6 my-2 my-sm-0"
+										type="submit"
+										disabled={buttonActive}>
 										Registrar
 									</button>
 								</div>
