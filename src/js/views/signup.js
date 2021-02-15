@@ -109,7 +109,7 @@ export const Signup = () => {
 			<div className="container bg-light">
 				<div className="row justify-content-center">
 					<div className="col-md-6 col-sm-12 p-5 text-center">
-						<h1 className="m-5 text-muted text-center">Registro</h1>
+						<h1 className="m-3 text-muted text-center">Registro</h1>
 						<div className="row mb-4 mt-2">
 							{/* Aquí inicia el formulario */}
 							<form action="" name="form1" id="form1">
