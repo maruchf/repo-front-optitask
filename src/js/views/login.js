@@ -4,6 +4,23 @@ import { Navbar } from "../component/navbar";
 import imagen2 from "../../img/imagen2.png";
 export const Login = () => {
 	// const [checked, setChecked] = useState(initialState);
+	//--------------------------------------------------------/
+	//OBJETO-HOOK-FUNCIÓN PARA GUARDAR DATOS DEL USUARIO
+	//--------------------------------------------------------/
+	//Objeto form data almacenará información
+	const formData = {
+		email: "",
+		password: ""
+	};
+	const [login, setLogin] = useState(formData); //Hook estado para guardar info de inputs
+	//función que guarda los datos en el estado de registro a medida que son completados,
+	//cambian el estado inicial vacío a los valores
+	function changeLogin(e) {
+		setLogin({
+			...login,
+			[e.target.name]: e.target.value
+		});
+	}
 	return (
 		<div>
 			<div className="form-login d-flex align-items-center">
@@ -13,10 +30,21 @@ export const Login = () => {
 							<h1 className="mb-5 text-muted">Iniciar sesión</h1>
 							<form>
 								<div className="form-group">
-									<input className="form-control" placeholder="correo electrónico" />
+									<input
+										className="form-control"
+										placeholder="correo electrónico"
+										name="email"
+										onChange={changeLogin}
+									/>
 								</div>
 								<div className="form-group">
-									<input className="form-control" placeholder="contraseña" type="password" />
+									<input
+										className="form-control"
+										placeholder="contraseña"
+										type="password"
+										name="password"
+										onChange={changeLogin}
+									/>
 								</div>
 								<div className="row">
 									<div className="col-auto">
