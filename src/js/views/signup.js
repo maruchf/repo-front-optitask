@@ -43,24 +43,30 @@ export const Signup = () => {
 	const changePasswordC = e => {
 		setPasswordConfirm(e.target.value);
 	};
-	//Estado del botón de registro
-	let initialStateButton = false;
-	const [buttonActive, setButtonActive] = useState(initialStateButton);
-	//función valida cuando las contraseñas son idénticas y devuelve verdadero
-	useEffect((passwordOriginal, passwordConfirm) => {
-		const passwordValidate = (passwordOriginal, passwordConfirm) => {
-			if ((passwordOriginal = passwordConfirm)) {
-				setButtonActive(true); //cambia estado del botón a booleano True
-			} else {
-				form1.inputPasswordConfirm.value = ""; //limpia campos
-				form1.inputPassword.value = ""; //limpia campos
-				form1.inputPassword.focus(); //posiciona de nuevo sobre password
-				setButtonActive(false); //cambia estado del botón a booleano False
-			}
-		};
-		passwordValidate();
-	}, []);
 
+	//Estado del botón de registro
+	const [buttonActive, setButtonActive] = useState(true);
+	//manejar evento de presionar enter en password2 y validar contraseñas
+	useEffect(
+		() => {
+			const validatePassword = () => {
+				if (passwordOriginal === "" && passwordConfirm === "") {
+					setButtonActive(true);
+				}
+				if (passwordOriginal === passwordConfirm) {
+					setButtonActive(false); //cambia estado del botón a booleano True
+				} else {
+					form1.inputPasswordConfirm.value = ""; //limpia campos
+					form1.inputPassword.value = ""; //limpia campos
+					form1.inputPassword.focus(); //posiciona de nuevo sobre password
+					setButtonActive(true); //cambia estado del botón a booleano False
+					alert("La contraseña no coincide");
+				}
+			};
+			validatePassword();
+		},
+		[passwordConfirm]
+	);
 	//--------------------------------------------------------/
 	//OBJETO-HOOK-FUNCIÓN PARA BUSCAR PAÍS EN API
 	//--------------------------------------------------------/
@@ -103,7 +109,7 @@ export const Signup = () => {
 			<div className="container bg-light">
 				<div className="row justify-content-center">
 					<div className="col-md-6 col-sm-12 p-5 text-center">
-						<h1 className="mb-5 text-muted text-center">Registro</h1>
+						<h1 className="m-5 text-muted text-center">Registro</h1>
 						<div className="row mb-4 mt-2">
 							{/* Aquí inicia el formulario */}
 							<form action="" name="form1" id="form1">
@@ -125,6 +131,7 @@ export const Signup = () => {
 											type="text"
 											className="form-control"
 											id="inputAddress"
+											name="name"
 											placeholder="Nombre de usuario..."
 											onChange={changeSignUp}
 											required
@@ -150,8 +157,8 @@ export const Signup = () => {
 											id="inputPasswordConfirm"
 											placeholder="Confirmar contraseña..."
 											name="password2"
-											onChange={changePasswordC}
-											//onKeyPress={passwordValidate} //revisar evento adecuado
+											onChange={changeSignUp}
+											onBlur={changePasswordC}
 											required
 										/>
 									</div>
@@ -163,6 +170,7 @@ export const Signup = () => {
 												placeholder="País..."
 												id="inputPais"
 												value={search}
+												name="country"
 												onChange={changeSearch}
 											/>
 											<ul>
@@ -177,9 +185,10 @@ export const Signup = () => {
 										</form>
 									</div>
 									<button
-										className="btn btn-primary col-6 my-2 my-sm-0"
+										className="btn btn-secondary col-6 my-2 my-sm-0 disable"
 										type="submit"
-										disabled={buttonActive}>
+										disabled={buttonActive}
+										aria-disabled={buttonActive}>
 										Registrar
 									</button>
 								</div>
