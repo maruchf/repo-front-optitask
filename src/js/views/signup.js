@@ -202,7 +202,7 @@ export const Signup = () => {
 							<img className="img col-5" src={flujodecaja} alt="Card image cap" />
 						</div>
 						<p className="card-text text-center">
-							¡Registrate ahora! y optimiza tus finanzas, con pocos pasos disfruta de las ventajas al usar
+							¡Registrate ahora! y optimiza tus finanzas, con pocos pasos disfruta las ventajas de
 							Optitask
 						</p>
 						<div />
