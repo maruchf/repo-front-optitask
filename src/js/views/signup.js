@@ -1,11 +1,15 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import "../../styles/signup.scss";
 import imagen6 from "../../img/imagen6.png";
 import flujodecaja from "../../img/flujodecaja.jpg";
+import {Context} from "../store/appContext.js";
 
 export const Signup = () => {
 	//Declaración de funciones principales
 	//--------------------------------------------------------/
+
+	//usa Store y actions del contexto 
+	const {store, actions} = useContext(Context)
 
 	//--------------------------------------------------------/
 	//OBJETO-HOOK-FUNCIÓN PARA GUARDAR DATOS DEL USUARIO
@@ -174,9 +178,16 @@ export const Signup = () => {
 												onChange={changeSearch}
 											/>
 											<ul>
-												{searchResults.map((searchResult, index) => {
+												{searchResults.map(searchResult => {
 													return (
-														<li key={index} item={searchResult.name}>
+														<li
+															key={searchResults.alpha3Code}
+															onClick={() => {
+																setSignup({
+																	...signup,
+																	[country]: alpha3Code
+																});
+															}}>
 															{searchResult.name}
 														</li>
 													);
@@ -188,7 +199,8 @@ export const Signup = () => {
 										className="btn btn-secondary col-6 my-2 my-sm-0 disable"
 										type="submit"
 										disabled={buttonActive}
-										aria-disabled={buttonActive}>
+										aria-disabled={buttonActive}
+										onClick={addUser}>
 										Registrar
 									</button>
 								</div>
