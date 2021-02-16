@@ -1,83 +1,46 @@
-const URL_BASE = "http://localhost:3000/"
+import signup from "../views/signup.js";
+import login from "../views/login";
 
+const data_login = login;
+const data_signup = signup;
+const BASE_URL = "http://localhost:8080";
 const getState = ({ getStore, getActions, setStore }) => {
-	
-
 	return {
 		store: {
 			user: [],
-			// demo: [
-			// 	{
-			// 		title: "FIRST",
-			// 		background: "white",
-			// 		initial: "white"
-			// 	},
-			// 	{
-			// 		title: "SECOND",
-			// 		background: "white",
-			// 		initial: "white"
-			// 	}
-			// ]
+			countries: []
 		},
 		actions: {
-			fetchUser: async (id= null) => {
-				let url= BASE_URL + "/users";
-				if (id !=null){
-					url += "/" +id;
+			// Registrar un usuario
+			addUser: async () => {
+				const newLocal = `${BASE_URL}/users`;
+				let url = newLocal;
+				let response = await fetch(url, {
+					method: "POST",
+					body: JSON.stringify(data_signup), //revisar cómo se llama a estado singup de componente signup.js
+					headers: { "Content-Type": "application/json" }
+				});
+				if (response.ok) {
+					return true;
+				} else {
+					console.log(response.statusText);
+					console.log(response.status);
+					return false;
 				}
-				let response= await fetch(url);
-				if (response.ok){
-					let body = await response.json();
-					if (id == null) {
-						setStore({
-							user: body
-						});
-					} else {
-						alert("Problema");
-					}
-				}
-			}
+			},
 
-			addUser: async (signup) => {
-				let url= BASE_URL + "/users";
-				let response= await fetch(url,
-					{
-						method: "POST",
-						body: JSON.stringify(signup),//revisar cómo se llama a estado singup de componente signup.js
-						headers: {
-							"Content-Type": "application/json"
-						}
-					});
-				if (response.ok){
-					console.log(response)
+			//Consulta API Countries REST
+			getCountries: async () => {
+				try {
+					let urlAPICountry = "https://restcountries.eu/rest/v2/all";
+					let response = await fetch(urlAPICountry);
+					let responseObject = await response.json();
+					setStore({ countries: responseObject });
+					console.log(responseObject);
+				} catch (error) {
+					console.log(error);
 				}
 			}
-
-
-
-			// Use getActions to call a function within a fuction
-			// exampleFunction: () => {
-			// 	getActions().changeColor(0, "green");
-			// },
-			// loadSomeData: () => {
-			// 	/**
-			// 		fetch().then().then(data => setStore({ "foo": data.bar }))
-			// 	*/
-			// },
-			// changeColor: (index, color) => {
-			// 	//get the store
-			// 	const store = getStore();
-
-			// 	//we have to loop the entire demo array to look for the respective index
-			// 	//and change its color
-			// 	const demo = store.demo.map((elm, i) => {
-			// 		if (i === index) elm.background = color;
-			// 		return elm;
-			// 	});
-
-			// 	//reset the global store
-			// 	setStore({ demo: demo });
-			// }
 		}
 	};
 };

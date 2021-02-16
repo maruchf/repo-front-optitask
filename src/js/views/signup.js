@@ -2,26 +2,29 @@ import React, { Fragment, useContext, useEffect, useState } from "react";
 import "../../styles/signup.scss";
 import imagen6 from "../../img/imagen6.png";
 import flujodecaja from "../../img/flujodecaja.jpg";
-import {Context} from "../store/appContext.js";
+import { Context } from "../store/appContext.js";
+import { useHistory } from "react-router-dom";
 
 export const Signup = () => {
 	//Declaración de funciones principales
 	//--------------------------------------------------------/
 
-	//usa Store y actions del contexto 
-	const {store, actions} = useContext(Context)
+	//usa Store y actions del contexto
+	const { store, actions } = useContext(Context);
 
 	//--------------------------------------------------------/
 	//OBJETO-HOOK-FUNCIÓN PARA GUARDAR DATOS DEL USUARIO
 	//--------------------------------------------------------/
 	//Objeto form data almacenará información
+	const history = useHistory("");
 	const formData = {
 		email: "",
 		name: "",
 		last_name: "",
 		user_name: "",
-		password2: "",
+		password: "",
 		country: "",
+		country_code: "", //no tiene campo en BD
 		region_state: ""
 	};
 	const [signup, setSignup] = useState(formData); //Hook estado para guardar info de inputs
@@ -32,6 +35,16 @@ export const Signup = () => {
 			...signup,
 			[e.target.name]: e.target.value
 		});
+	}
+
+	function saveSignUp(e) {
+		let success = actions.addUser(signup);
+		if (success) {
+			history.push("/login");
+			console.log("Su usuario ha sido creado");
+		} else {
+			console.log("Su usuario no pudo ser creado");
+		}
 	}
 
 	//--------------------------------------------------------/
@@ -50,7 +63,7 @@ export const Signup = () => {
 
 	//Estado del botón de registro
 	const [buttonActive, setButtonActive] = useState(true);
-	//manejar evento de presionar enter en password2 y validar contraseñas
+	//manejar evento de presionar enter en password y validar contraseñas
 	useEffect(
 		() => {
 			const validatePassword = () => {
@@ -83,29 +96,18 @@ export const Signup = () => {
 	const changeSearch = e => {
 		setSearch(e.target.value);
 	};
-	//Fetch async-await para consultar países de la API
-	const [countries, setCountries] = useState([]);
-	useEffect(() => {
-		const getCountry = async urlAPICountry => {
-			try {
-				let response = await fetch(urlAPICountry);
-				let responseObject = await response.json();
-				setCountries(responseObject);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		let urlAPICountry = "https://restcountries.eu/rest/v2/all";
-		getCountry(urlAPICountry);
-	}, []);
+
 	//Función para búsqueda del cliente
 	useEffect(
 		() => {
-			const results = countries.filter(country => country.name.toLowerCase().includes(search));
-			setSearchResults(results);
+			if (search.length > 3) {
+				const results = store.countries.filter(country => country.name.toLowerCase().includes(search));
+				setSearchResults(results);
+			}
 		},
 		[search]
 	);
+	console.log(searchResults);
 
 	//----------HTML PARA REGISTRO---------------/
 	return (
@@ -160,7 +162,7 @@ export const Signup = () => {
 											className="form-control"
 											id="inputPasswordConfirm"
 											placeholder="Confirmar contraseña..."
-											name="password2"
+											name="password"
 											onChange={changeSignUp}
 											onBlur={changePasswordC}
 											required
@@ -181,12 +183,15 @@ export const Signup = () => {
 												{searchResults.map(searchResult => {
 													return (
 														<li
-															key={searchResults.alpha3Code}
+															key={searchResult.alpha3Code}
 															onClick={() => {
 																setSignup({
 																	...signup,
-																	[country]: alpha3Code
+																	country_code: searchResult.alpha3Code,
+																	country: searchResult.name
 																});
+																setSearch(searchResult.name);
+																setSearchResults([]);
 															}}>
 															{searchResult.name}
 														</li>
@@ -197,10 +202,9 @@ export const Signup = () => {
 									</div>
 									<button
 										className="btn btn-secondary col-6 my-2 my-sm-0 disable"
-										type="submit"
 										disabled={buttonActive}
 										aria-disabled={buttonActive}
-										onClick={addUser}>
+										onClick={saveSignUp}>
 										Registrar
 									</button>
 								</div>
