@@ -1,18 +1,14 @@
-import signup from "../views/signup.js";
-import login from "../views/login";
-
-const data_login = login;
-const data_signup = signup;
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://3000-teal-prawn-dphc49pw.ws-eu03.gitpod.io";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			user: [],
-			countries: []
+			countries: [],
+			token: []
 		},
 		actions: {
 			// Registrar un usuario
-			addUser: async () => {
+			addUser: async data_signup => {
 				const newLocal = `${BASE_URL}/users`;
 				let url = newLocal;
 				let response = await fetch(url, {

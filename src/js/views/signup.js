@@ -137,7 +137,7 @@ export const Signup = () => {
 											type="text"
 											className="form-control"
 											id="inputAddress"
-											name="name"
+											name="user_name"
 											placeholder="Nombre de usuario..."
 											onChange={changeSignUp}
 											required
