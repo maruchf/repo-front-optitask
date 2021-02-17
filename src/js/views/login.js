@@ -3,6 +3,7 @@ import "../../styles/login.scss";
 import { Navbar } from "../component/navbar";
 import imagen2 from "../../img/imagen2.png";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 export const Login = () => {
 	const { store, actions } = useContext(Context);
 	// const [checked, setChecked] = useState(initialState);
@@ -76,19 +77,19 @@ export const Login = () => {
 										</div>
 									</div>
 									<div className="col-auto ml-auto">
-										<a className="text-link" href="#">
+										<Link className="text-link" to="#">
 											{"¿Has olvidado tu contraseña?"}
-										</a>
+										</Link>
 									</div>
 								</div>
 								<div className="form-group">
-									<button type="submit" className="btn btn-primary mt-5 btn-lg" onClick={checkLogin}>
+									<button type="button" className="btn btn-primary mt-5 btn-lg" onClick={checkLogin}>
 										{"Entrar"}
 									</button>
 									<div className="mt-2">
-										<a href="#" className="text-link">
+										<Link to="#" className="text-link">
 											{"¿Eres nuevo? ¡Regístrate!"}
-										</a>
+										</Link>
 									</div>
 								</div>
 							</form>
