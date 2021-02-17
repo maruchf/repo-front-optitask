@@ -3,9 +3,10 @@ import "../../styles/login.scss";
 import { Navbar } from "../component/navbar";
 import imagen2 from "../../img/imagen2.png";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 export const Login = () => {
 	const { store, actions } = useContext(Context);
+	const history = useHistory();
 	// const [checked, setChecked] = useState(initialState);
 	//--------------------------------------------------------/
 	//OBJETO-HOOK-FUNCIÓN PARA GUARDAR DATOS DEL USUARIO
@@ -22,16 +23,23 @@ export const Login = () => {
 	const changePassword = e => {
 		setPassword(e.target.value);
 	};
-	const checkLogin = e => {
+	const checkLogin = async e => {
 		if (email != "" && password != "") {
 			let data_login = {
 				email: email,
 				password: password
 			};
-			console.log(data_login);
-			actions.loginUser(data_login);
-		} else {
-			alert("no se pueden dejar campos vacíos");
+			let success = await actions.loginUser(data_login);
+			if (success) {
+				if (store.token != "") {
+					console.log("usuario autenticado");
+					history.push("/profile");
+				} else {
+					alert("usuario no registrado");
+				}
+			} else {
+				alert("no se pueden dejar campos vacíos");
+			}
 		}
 	};
 	return (
