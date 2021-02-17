@@ -8,15 +8,13 @@ import { useHistory } from "react-router-dom";
 export const Signup = () => {
 	//Declaración de funciones principales
 	//--------------------------------------------------------/
-
 	//usa Store y actions del contexto
 	const { store, actions } = useContext(Context);
-
 	//--------------------------------------------------------/
 	//OBJETO-HOOK-FUNCIÓN PARA GUARDAR DATOS DEL USUARIO
 	//--------------------------------------------------------/
 	//Objeto form data almacenará información
-	const history = useHistory("");
+	const history = useHistory();
 	const formData = {
 		email: "",
 		name: "",
@@ -37,15 +35,17 @@ export const Signup = () => {
 		});
 	}
 
-	function saveSignUp(e) {
-		let success = actions.addUser(signup);
+	const saveSignUp = async e => {
+		e.preventDefault();
+		console.log(signup);
+		let success = await actions.addUser(signup);
 		if (success) {
-			history.push("/login");
 			console.log("Su usuario ha sido creado");
+			history.push("/login");
 		} else {
 			console.log("Su usuario no pudo ser creado");
 		}
-	}
+	};
 
 	//--------------------------------------------------------/
 	//OBJETO-HOOK-FUNCIÓN PARA VALIDAR CONTRASEÑAS COINCIDENTES
