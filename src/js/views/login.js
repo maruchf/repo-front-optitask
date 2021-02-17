@@ -1,26 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "../../styles/login.scss";
 import { Navbar } from "../component/navbar";
 import imagen2 from "../../img/imagen2.png";
+import { Context } from "../store/appContext";
 export const Login = () => {
+	const { store, actions } = useContext(Context);
 	// const [checked, setChecked] = useState(initialState);
 	//--------------------------------------------------------/
 	//OBJETO-HOOK-FUNCIÓN PARA GUARDAR DATOS DEL USUARIO
 	//--------------------------------------------------------/
 	//Objeto form data almacenará información
-	const formData = {
-		email: "",
-		password: ""
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	// const [login, setLogin] = useState(formData); //Hook estado para guardar info de inputs
+	// //función que guarda los datos en el estado de registro a medida que son completados,
+	// //cambian el estado inicial vacío a los valores
+	const changeEmail = e => {
+		setEmail(e.target.value);
 	};
-	const [login, setLogin] = useState(formData); //Hook estado para guardar info de inputs
-	//función que guarda los datos en el estado de registro a medida que son completados,
-	//cambian el estado inicial vacío a los valores
-	function changeLogin(e) {
-		setLogin({
-			...login,
-			[e.target.name]: e.target.value
-		});
-	}
+	const changePassword = e => {
+		setPassword(e.target.value);
+	};
+	const checkLogin = e => {
+		if (email != "" && password != "") {
+			let data_login = {
+				email: email,
+				password: password
+			};
+			console.log(data_login);
+			actions.loginUser(data_login);
+		} else {
+			alert("no se pueden dejar campos vacíos");
+		}
+	};
 	return (
 		<div>
 			<div className="form-login d-flex align-items-center">
@@ -34,7 +46,8 @@ export const Login = () => {
 										className="form-control"
 										placeholder="correo electrónico"
 										name="email"
-										onChange={changeLogin}
+										pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+										onChange={changeEmail}
 									/>
 								</div>
 								<div className="form-group">
@@ -43,7 +56,9 @@ export const Login = () => {
 										placeholder="contraseña"
 										type="password"
 										name="password"
-										onChange={changeLogin}
+										pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" //revisar criterios
+										//solicita al menos 1 mayúscula, 1 minúscula, 1 caractér especial, 1 número
+										onChange={changePassword}
 									/>
 								</div>
 								<div className="row">
@@ -67,7 +82,7 @@ export const Login = () => {
 									</div>
 								</div>
 								<div className="form-group">
-									<button type="submit" className="btn btn-primary mt-5 btn-lg">
+									<button type="submit" className="btn btn-primary mt-5 btn-lg" onClick={checkLogin}>
 										{"Entrar"}
 									</button>
 									<div className="mt-2">

@@ -4,9 +4,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			user: [],
 			countries: [],
-			token: []
+			token: ""
 		},
 		actions: {
+			loginUser: async data_login => {
+				let url = BASE_URL + "/login";
+				let response = await fetch(url, {
+					method: "POST",
+					body: JSON.stringify(data_login),
+					headers: { "Content-Type": "application/json" }
+				});
+				if (response.ok) {
+					setStore({ token: response.jwt });
+					console.log(response.jwt);
+					return true;
+				} else {
+					console.log(response.statusText);
+					console.log(response.status);
+					return false;
+				}
+			},
 			// Registrar un usuario
 			addUser: async data_signup => {
 				const newLocal = `${BASE_URL}/users`;
