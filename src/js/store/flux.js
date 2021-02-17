@@ -1,4 +1,4 @@
-const BASE_URL = "https://3000-teal-prawn-dphc49pw.ws-eu03.gitpod.io";
+const BASE_URL = "http://localhost:8080";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -26,12 +26,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			// Registrar un usuario
 			addUser: async data_signup => {
-				const newLocal = `${BASE_URL}/users`;
-				let url = newLocal;
+				console.log(data_signup);
+				let url = BASE_URL + "/users";
 				let response = await fetch(url, {
 					method: "POST",
-					body: JSON.stringify(data_signup), //revisar cómo se llama a estado singup de componente signup.js
-					headers: { "Content-Type": "application/json" }
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify(data_signup) //revisar cómo se llama a estado singup de componente signup.js
 				});
 				if (response.ok) {
 					return true;
