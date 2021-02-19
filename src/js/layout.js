@@ -6,8 +6,9 @@ import { Home } from "./views/home";
 import { Login } from "./views/login";
 import { Signup } from "./views/signup";
 import { Profile } from "./views/profile";
+import Income from "./views/income";
+import Expenses from "./views/expenses";
 import injectContext from "./store/appContext";
-
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
@@ -34,6 +35,12 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/profile">
 							<Profile />
+						</Route>
+						<Route exact path="/income">
+							<Income />
+						</Route>
+						<Route exact path="/expenses">
+							<Expenses />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

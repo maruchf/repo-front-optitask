@@ -145,7 +145,7 @@ export const Signup = () => {
 									<div className=" col-8">
 										<input
 											type="text"
-											className="form-control"
+											className="form-control mb-3 bg-light border border-primary rounded-pill"
 											id="inputEmail"
 											placeholder="Correo electrónico..."
 											name="email"
@@ -157,7 +157,7 @@ export const Signup = () => {
 									<div className=" col-8">
 										<input
 											type="text"
-											className="form-control"
+											className="form-control mb-3 bg-light border border-primary rounded-pill"
 											id="inputAddress"
 											name="user_name"
 											placeholder="Nombre de usuario..."
@@ -168,9 +168,9 @@ export const Signup = () => {
 									<div className=" col-8">
 										<input
 											type="text"
-											className="form-control"
+											className="form-control mb-3 bg-light border border-primary rounded-pill"
 											id="inputPassword"
-											//pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" //revisar criterios
+											pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" //revisar criterios
 											//solicita al menos 1 mayúscula, 1 minúscula, 1 caractér especial, 1 número
 											placeholder="Contraseña..."
 											name="password1"
@@ -181,7 +181,7 @@ export const Signup = () => {
 									<div className=" col-8">
 										<input
 											type="text"
-											className="form-control"
+											className="form-control mb-3 bg-light border border-primary rounded-pill"
 											id="inputPasswordConfirm"
 											placeholder="Confirmar contraseña..."
 											name="password"
@@ -223,9 +223,9 @@ export const Signup = () => {
 										</form>
 									</div>
 									<button
-										className="btn btn-secondary col-6 my-2 my-sm-0 disable"
-										// disabled={buttonActive}
-										// aria-disabled={buttonActive}
+										className="btn btn-outline-primary col-6 my-2 my-sm-0 disable"
+										//disabled={buttonActive}
+										//aria-disabled={buttonActive}
 										onClick={saveSignUp}>
 										Registrar
 									</button>

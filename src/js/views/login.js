@@ -52,7 +52,7 @@ export const Login = () => {
 							<form>
 								<div className="form-group">
 									<input
-										className="form-control"
+										className="form-control bg-light border border-primary rounded-pill"
 										placeholder="correo electrónico"
 										name="email"
 										pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -61,7 +61,7 @@ export const Login = () => {
 								</div>
 								<div className="form-group">
 									<input
-										className="form-control"
+										className="form-control bg-light border border-primary rounded-pill"
 										placeholder="contraseña"
 										type="password"
 										name="password"
@@ -85,17 +85,20 @@ export const Login = () => {
 										</div>
 									</div>
 									<div className="col-auto ml-auto">
-										<Link className="text-link" to="#">
+										<Link className="text-link-primary" to="#">
 											{"¿Has olvidado tu contraseña?"}
 										</Link>
 									</div>
 								</div>
 								<div className="form-group">
-									<button type="button" className="btn btn-primary mt-5 btn-lg" onClick={checkLogin}>
+									<button
+										type="button"
+										className="btn btn-outline-primary mt-5 btn-lg"
+										onClick={checkLogin}>
 										{"Entrar"}
 									</button>
 									<div className="mt-2">
-										<Link to="#" className="text-link">
+										<Link to="#" className="text-link-primary">
 											{"¿Eres nuevo? ¡Regístrate!"}
 										</Link>
 									</div>
