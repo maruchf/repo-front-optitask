@@ -6,6 +6,7 @@ import { Home } from "./views/home";
 import { Login } from "./views/login";
 import { Signup } from "./views/signup";
 import { Profile } from "./views/profile";
+import { EditProfile } from "./views/profile";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";

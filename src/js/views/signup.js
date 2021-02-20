@@ -133,7 +133,7 @@ export const Signup = () => {
 
 	//----------HTML PARA REGISTRO---------------/
 	return (
-		<div className="d-flex align-items-center">
+		<div className="form-singup d-flex align-items-center">
 			<div className="container bg-light">
 				<div className="row justify-content-center">
 					<div className="col-md-6 col-sm-12 p-5 text-center">
