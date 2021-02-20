@@ -7,6 +7,8 @@ import { Login } from "./views/login";
 import { Signup } from "./views/signup";
 import { Profile } from "./views/profile";
 import { EditProfile } from "./views/profile";
+import { Dashboard } from "./views/dashboard";
+import { DropdownList } from "./component/dropdownList";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -33,8 +35,11 @@ const Layout = () => {
 						<Route exact path="/signup">
 							<Signup />
 						</Route>
-						<Route exact path="/profile">
-							<Profile />
+						<Route exact path="/dashboard">
+							<Dashboard />
+						</Route>
+						<Route exact path="/dropdownList">
+							<DropdownList />
 						</Route>
 						<Route exact path="/profile/editprofile">
 							<EditProfile />
