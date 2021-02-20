@@ -8,7 +8,7 @@ import { Signup } from "./views/signup";
 import { Profile } from "./views/profile";
 import Income from "./views/income";
 import Expenses from "./views/expenses";
-import { EditProfile } from "./views/profile";
+import { EditProfile } from "./views/editprofile";
 import { Dashboard } from "./views/dashboard";
 import { DropdownList } from "./component/dropdownList";
 import injectContext from "./store/appContext";
