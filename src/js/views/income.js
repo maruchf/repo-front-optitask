@@ -28,7 +28,7 @@ function Income() {
 									placeholder="Fecha"
 								/>
 								<select
-									className="form-select form-select-lg bg-light mb-6 col-6 border border-primary rounded-pill mx-2"
+									className="custom-select form-select-lg bg-light mb-6 col-6 border border-primary rounded-pill mx-2"
 									aria-label=".form-select-lg example">
 									{/* Aquí debemos hacer el llamado a la API de conversión de monedas en tiempo real 
                                     y la API del precio del Bitcoin. */}
@@ -48,7 +48,7 @@ function Income() {
 							<div className="row">
 								{/* ---------------Select Forma de Pago--------------------- */}
 								<select
-									className="form-select form-select-lg bg-light mb-6 col-5 border border-primary rounded-pill mx-2"
+									className="custom-select form-select-lg bg-light mb-6 col-5 border border-primary rounded-pill mx-2"
 									aria-label=".form-select-lg example">
 									<option selected>Forma de Pago</option>
 									<option value="1">Cryptomonedas</option>
@@ -61,7 +61,7 @@ function Income() {
 								</select>
 								{/* ---------------Select Metodo Asociado de Pago--------------------- */}
 								<select
-									className="form-select form-select-lg bg-light mb-6 col-5 border border-primary rounded-pill mx-2"
+									className="custom-select form-select-lg bg-light mb-6 col-5 border border-primary rounded-pill mx-2"
 									aria-label=".form-select-lg example">
 									<option selected>Metodo Asociado de Pago</option>
 									<option value="1">Monedas Fiduciarias</option>
@@ -103,11 +103,40 @@ function Income() {
 						<div className="form-group">
 							{/* ----------------Select Entidad Bancaria----------------- */}
 							<div className="row">
-								<select className="custom-select col-5  mb-6 mx-1 bg-light border border-primary rounded-pill">
+								<select className="custom-select col-5 mb-6 mx-1 bg-light border border-primary rounded-pill">
 									<option selected>Seleccione una Entidad Bancaria</option>
-									<option value="1">Banesco</option>
-									<option value="2">Mercantil</option>
-									<option value="3">Provincial</option>
+									<option value="1">Banco Central de Venezuela</option>
+									<option value="2">Banco de Venezuela S.A.C.A. Banco Universal</option>
+									<option value="3">Venezolano de Crédito, S.A. Banco Universal</option>
+									<option value="4">Banco Mercantil, C.A. Banco Universal</option>
+									<option value="5">Banco Provincial, S.A. Banco Universa</option>
+									<option value="6">Bancaribe C.A. Banco Universa</option>
+									<option value="7">Banco Exterior C.A. Banco Universa</option>
+									<option value="8">Banco Occidental de Descuento, Banco Universal C.A</option>
+									<option value="9">Banco Caroní C.A. Banco Universal</option>
+									<option value="10">Banesco Banco Universal S.A.C.A.</option>
+									<option value="11">Banco Sofitasa, Banco Universal</option>
+									<option value="12">Banco Plaza, Banco Universal</option>
+									<option value="13">Banco de la Gente Emprendedora C.A</option>
+									<option value="14">BFC Banco Fondo Común C.A. Banco Universal</option>
+									<option value="15">100% Banco, Banco Universal C.A.</option>
+									<option value="16">DelSur Banco Universal C.A.</option>
+									<option value="17">Banco del Tesoro, C.A. Banco Universal</option>
+									<option value="18">Banco Agrícola de Venezuela, C.A. Banco Universa</option>
+									<option value="19">Bancrecer, S.A. Banco Microfinanciero</option>
+									<option value="20">Mi Banco, Banco Microfinanciero C.A.</option>
+									<option value="21">Banco Activo, Banco Universa</option>
+									<option value="22">Bancamica, Banco Microfinanciero C.A.</option>
+									<option value="23">Banco Internacional de Desarrollo, C.A. Banco Universal</option>
+									<option value="24">Banplus Banco Universal, C.A</option>
+									<option value="25">
+										Banco Bicentenario del Pueblo de la Clase Obrera, Mujer y Comunas B.U.
+									</option>
+									<option value="26">Novo Banco, S.A. Sucursal Venezuela Banco Universa</option>
+									<option value="27">Banco de la Fuerza Armada Nacional Bolivariana, B.U.</option>
+									<option value="28">Citibank N.A.</option>
+									<option value="29">Banco Nacional de Crédito, C.A. Banco Universal</option>
+									<option value="30">Instituto Municipal de Crédito Popular</option>
 								</select>
 								{/* ----------------Input Tipo de Negocio----------------- */}
 								<input
@@ -134,8 +163,8 @@ function Income() {
 					<thead>
 						<tr>
 							<th scope="col">#</th>
-							<th scope="col">Registros de Ingresos</th>
-							<th scope="col">Descripción</th>
+							<th scope="col">Registro del Ingreso</th>
+							<th scope="col">Descripción del Ingreso</th>
 							<th scope="col">Monto en USD Dolar</th>
 						</tr>
 					</thead>
@@ -143,19 +172,32 @@ function Income() {
 						<tr>
 							<th scope="row">1</th>
 							<td />
-							<td>Otto</td>
-							<td>@mdo</td>
+							<td />
+							<td />
 						</tr>
 						<tr>
 							<th scope="row">2</th>
-							<td>Jacob</td>
-							<td>Thornton</td>
-							<td>@fat</td>
+							<td />
+							<td />
+							<td />
 						</tr>
 						<tr>
 							<th scope="row">3</th>
-							<td>Larry the Bird</td>
-							<td>@twitter</td>
+							<td />
+							<td />
+							<td />
+						</tr>
+						<tr>
+							<th scope="row">4</th>
+							<td />
+							<td />
+							<td />
+						</tr>
+						<tr>
+							<th scope="row">5</th>
+							<td />
+							<td />
+							<td />
 						</tr>
 					</tbody>
 				</table>
