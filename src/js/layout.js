@@ -6,8 +6,14 @@ import { Home } from "./views/home";
 import { Login } from "./views/login";
 import { Signup } from "./views/signup";
 import { Profile } from "./views/profile";
+<<<<<<< HEAD
 import Income from "./views/income";
 import Expenses from "./views/expenses";
+=======
+import { EditProfile } from "./views/profile";
+import { Dashboard } from "./views/dashboard";
+import { DropdownList } from "./component/dropdownList";
+>>>>>>> cce6f0212ed20c855df82834d9db7785bdaeca16
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -33,8 +39,14 @@ const Layout = () => {
 						<Route exact path="/signup">
 							<Signup />
 						</Route>
-						<Route exact path="/profile">
-							<Profile />
+						<Route exact path="/dashboard">
+							<Dashboard />
+						</Route>
+						<Route exact path="/dropdownList">
+							<DropdownList />
+						</Route>
+						<Route exact path="/profile/editprofile">
+							<EditProfile />
 						</Route>
 						<Route exact path="/income">
 							<Income />
