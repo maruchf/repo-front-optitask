@@ -22,7 +22,11 @@ function Income() {
 							<div className="row">
 								{/* Este Span debera ser modificado por un boton que haga un llamado al calendario, 
                                 usando la libreria de DatePicker en JS. */}
-								<span className="border border-primary bg-light rounded-pill col-4 mx-2">Fecha</span>
+								<input
+									className="border border-primary bg-light rounded-pill col-4 mx-2"
+									type="date"
+									placeholder="Fecha"
+								/>
 								<select
 									className="form-select form-select-lg bg-light mb-6 col-6 border border-primary rounded-pill mx-2"
 									aria-label=".form-select-lg example">

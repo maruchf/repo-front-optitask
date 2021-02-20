@@ -5,6 +5,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			user: [],
 			countries: [],
 			token: ""
+			//  desde aqui se debera realizar los estado y crear un useEffect para colocar
+			//  a funcionar los drop down list del fromulario de registro de Ingreso y egresos
+
+			// formasDePagos: [
+			// 	{
+			// 		formaDePago: "efectivo",
+			// 		opciones: ["Moneda Fiduciaria"]
+			// 	},
+			// 	{
+			// 		formaDePago: "Cryptomonedas",
+			// 		opciones: ["Bitcoin"]
+			// 	}
+			// ]
 		},
 		actions: {
 			loginUser: async data_login => {
