@@ -20,15 +20,14 @@ function Expenses() {
 					<div className="col-12">
 						<div className="form-group">
 							<div className="row">
-								{/* Este Span debera ser modificado por un boton que haga un llamado al calendario, 
-                                usando la libreria de DatePicker en JS. */}
+								{/*---------------- Este Input me trae el calendario------------------ */}
 								<input
-									className="border border-primary  bg-light rounded-pill"
+									className="form-control col-5 mx-1 mb-6 border border-primary  bg-light rounded-pill"
 									type="date"
 									placeholder="Fecha"
 								/>
 								<select
-									className="custom-select form-select-lg bg-light mb-6 col-6 border border-primary rounded-pill mx-2"
+									className="custom-select form-select-lg bg-light mb-6 col-5 mx-1 border border-primary rounded-pill"
 									aria-label=".form-select-lg example">
 									{/* Aquí debemos hacer el llamado a la API de conversión de monedas en tiempo real 
                                     y la API del precio del Bitcoin. */}
@@ -48,7 +47,7 @@ function Expenses() {
 							<div className="row">
 								{/* ---------------Select Forma de Pago--------------------- */}
 								<select
-									className="custom-select form-select-lg bg-light mb-6 col-5 border border-primary rounded-pill mx-2"
+									className="custom-select form-select-lg bg-light mb-6 col-5 mx-1 border border-primary rounded-pill"
 									aria-label=".form-select-lg example">
 									<option selected>Forma de Pago</option>
 									<option value="1">Cryptomonedas</option>
@@ -61,7 +60,7 @@ function Expenses() {
 								</select>
 								{/* ---------------Select Metodo Asociado de Pago--------------------- */}
 								<select
-									className="custom-select form-select-lg bg-light mb-6 col-5 border border-primary rounded-pill mx-2"
+									className="custom-select form-select-lg bg-light mb-6 col-5 mx-1 border border-primary rounded-pill"
 									aria-label=".form-select-lg example">
 									<option selected>Metodo Asociado de Pago</option>
 									<option value="1">Monedas Fiduciarias</option>
@@ -80,23 +79,17 @@ function Expenses() {
 						<div className="form-group">
 							<div className="row">
 								{/* ---------------Input Monto a Registar-------------- */}
-								<div className="row">
-									<div className="col-6">
-										<input
-											type="text"
-											className="form-control mb-6 bg-light border border-primary rounded-pill"
-											placeholder="Monto a Registar"
-										/>
-									</div>
-									{/* -----Input Monto a Registar en Dolares Americanos (USD)---- */}
-									<div className="col-6">
-										<input
-											type="text"
-											className="form-control mb-6 bg-light border border-primary rounded-pill"
-											placeholder="Monto Registrado en Dolares Americanos (USD)"
-										/>
-									</div>
-								</div>
+								<input
+									className="form-control col-5 mx-1 bg-light border border-primary rounded-pill"
+									type="text"
+									placeholder="Monto a Registar"
+								/>
+								{/* -----Input Monto a Registar en Dolares Americanos (USD)---- */}
+								<input
+									className="form-control col-5 mx-1 bg-light border border-primary rounded-pill"
+									type="text"
+									placeholder="Monto Registrado en Dolares Americanos (USD)"
+								/>
 							</div>
 						</div>
 						<br />
@@ -141,55 +134,147 @@ function Expenses() {
 								{/* ----------------Input Tipo de Negocio----------------- */}
 								<input
 									type="text"
-									className="col-5 mb-6 mx-1 bg-light border border-primary rounded-pill"
+									className="form-control col-5 mb-6 mx-1 bg-light border border-primary rounded-pill"
 									placeholder="Tipo de Negocio"
 								/>
 							</div>
 						</div>
 						<br />
-						<div className="container" />
-						<table className="table table-sm table-primary">
-							<thead>
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">Registro del Ingreso</th>
-									<th scope="col">Descripción del Ingreso</th>
-									<th scope="col">Monto en USD Dolar</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th scope="row">1</th>
-									<td />
-									<td />
-									<td />
-								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td />
-									<td />
-									<td />
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td />
-									<td />
-									<td />
-								</tr>
-								<tr>
-									<th scope="row">4</th>
-									<td />
-									<td />
-									<td />
-								</tr>
-								<tr>
-									<th scope="row">5</th>
-									<td />
-									<td />
-									<td />
-								</tr>
-							</tbody>
-						</table>
+						{/* ----------------Select Categoria del Egreso----------------- */}
+						<div className="row">
+							<select className="custom-select  col-5 mb-6 mx-1 bg-light border border-primary rounded-pill">
+								<option selected>Seleccione una Categoria del Egreso</option>
+								<option value="1">Activos Fijos</option>
+								<option value="2">Activos Intangibles</option>
+								<option value="3">Alquiler</option>
+								<option value="4">Beneficios a Empleados</option>
+								<option value="5">Comisiones/Intereses</option>
+								<option value="6">Formación/Educación</option>
+								<option value="7">Gastos Administrativos</option>
+								<option value="8">Imprevisto</option>
+								<option value="9">Impuestos</option>
+								<option value="10">Inversión Inicial</option>
+								<option value="11">Publicidad</option>
+								<option value="12">Salario/Mano de Obra</option>
+								<option value="13">Salud</option>
+								<option value="14">Servicios Públicos</option>
+							</select>
+							{/* ----------------Introduzca el Proveedor----------------- */}
+							<input
+								type="text"
+								className="form-control col-5 mb-6 mx-1 bg-light border border-primary rounded-pill"
+								placeholder="Proveedor"
+							/>
+						</div>
+						<br />
+						<div className="form-group">
+							<div className="row">
+								<button type="button" className="btn btn-outline-primary mt-3 mb-3 mx-6" onClick="">
+									Agregar
+								</button>
+							</div>
+						</div>
+						<br />
+						{/* ----------------Tabla de los Ultimos 5 Registros de Egresos----------------- */}
+						<div className="form-group">
+							<div className="table-responsive-sm">
+								<table className="table table-sm table-primary">
+									<thead>
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">Fecha</th>
+											<th scope="col">Forma de Pago</th>
+											<th scope="col">Método de Pago</th>
+											<th scope="col">Entidad Bancaria</th>
+											<th scope="col">Tipo de Negocio</th>
+											<th scope="col">Descripción del Egreso</th>
+											<th scope="col">Categoria</th>
+											<th scope="col">Monto en USD Dolar</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">1</th>
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+										</tr>
+										<tr>
+											<th scope="row">2</th>
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+										</tr>
+										<tr>
+											<th scope="row">3</th>
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+										</tr>
+										<tr>
+											<th scope="row">4</th>
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+										</tr>
+										<tr>
+											<th scope="row">5</th>
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+										</tr>
+									</tbody>
+								</table>
+								<div className="form-group col-12">
+									<div className="row justify-content-center">
+										{/* Falta agregar la propiedad onClick para Cancelar el Registro del Valor a la Tabla. */}
+										<button
+											type="button"
+											className="btn btn-xs btn-outline-danger mt-3 mb-3"
+											onClick="">
+											Cancelar
+										</button>
+										{/* Falta agregar la propiedad onClick para Aceptar el Registro e Introducir el Valor a la Tabla. */}
+										<button
+											type="button"
+											className="btn btn-xs btn-outline-primary mt-3 mb-3"
+											onClick="">
+											Aceptar
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
