@@ -35,8 +35,9 @@ function Income() {
 									{/* ---------------Select Seleccione Moneda--------------------- */}
 									<option selected>Seleccione Moneda</option>
 									<option value="1">Bitcoin</option>
-									<option value="2">Bolivares Soberanos</option>
-									<option value="3">Dolar Americano</option>
+									<option value="2">Bolívares (Cambio Oficial)</option>
+									<option value="2">Bolívares (Cambio Alternativo)</option>
+									<option value="3">Dólar Americano</option>
 									<option value="4">Euro</option>
 									<option value="5">Pesos Colombianos</option>
 									<option value="6">Reales Brasileños</option>
