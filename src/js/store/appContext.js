@@ -20,9 +20,11 @@ const injectContext = PassedComponent => {
 					})
 			})
 		);
-		//Consulta API de países
+		//Consulta API de países y hora
 		useEffect(() => {
 			state.actions.getCountries();
+			state.actions.getTimeNow();
+			state.actions.getExchagesLocalBTC();
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

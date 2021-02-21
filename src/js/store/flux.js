@@ -4,7 +4,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			user: [],
 			countries: [],
-			token: ""
+			token: "",
+			datefull_now: "",
+			hour_now: "",
+			trx_sell_localBTC: []
 			//  desde aqui se debera realizar los estado y crear un useEffect para colocar
 			//  a funcionar los drop down list del fromulario de registro de Ingreso y egresos
 
@@ -66,9 +69,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log(error);
 				}
+			},
+
+			//Consulta fecha y hora actual
+			getTimeNow: () => {
+				let now = new Date();
+				let dateNow = now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear();
+				let hourNow = now.getHours() + ":" + now.getMinutes();
+				let currentTime = dateNow + " " + hourNow;
+				setStore({ datefull_now: currentTime, hour_now: hourNow });
+			},
+
+			//Consulta API
+			getExchagesLocalBTC: async () => {
+				const LOCALBITCOINSENDPOINT =
+					"https://cors-anywhere.herokuapp.com/https://localbitcoins.com/sell-bitcoins-online/ves/.json";
+				const opt = {
+					method: "GET",
+					mode: "cors",
+					// headers: {
+					// 	Origin: "*"
+					// },
+					body: null
+				};
+				const response = await fetch(LOCALBITCOINSENDPOINT, opt);
+				if (response.ok) {
+					return await response.json();
+				}
+				return { error: true };
 			}
 		}
 	};
 };
-
 export default getState;
+
+//	if (hour_now_str == "09:30" || hour_now_str == "16:57")
