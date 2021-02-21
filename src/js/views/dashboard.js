@@ -16,7 +16,7 @@ export const Dashboard = props => {
 		<div>
 			<NavbarLogged />
 			<div className="dashboard-container">
-				<div className="row">
+				<div className="row m-5">
 					<div className="col-md-8">
 						<CashFlow />
 						<Groups />

@@ -4,7 +4,7 @@ import "../../styles/navbarLogged.scss";
 import "../../img/full-logo.png";
 export const NavbarLogged = () => {
 	return (
-		<nav className="main-nav">
+		<nav className="main-nav navbar-nav">
 			<div className="">
 				<a className="bg-dark p-2 d-block" href="/dashboard">
 					<img src="full-logo.png" className="img" />
