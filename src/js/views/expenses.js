@@ -260,14 +260,14 @@ function Expenses() {
 										{/* Falta agregar la propiedad onClick para Cancelar el Registro del Valor a la Tabla. */}
 										<button
 											type="button"
-											className="btn btn-xs btn-outline-danger mt-3 mb-3"
+											className="btn btn-xs btn-outline-danger mt-3 mb-3 mx-4"
 											onClick="">
 											Cancelar
 										</button>
 										{/* Falta agregar la propiedad onClick para Aceptar el Registro e Introducir el Valor a la Tabla. */}
 										<button
 											type="button"
-											className="btn btn-xs btn-outline-primary mt-3 mb-3"
+											className="btn btn-xs btn-outline-primary mt-3 mb-3 mx-4"
 											onClick="">
 											Aceptar
 										</button>
