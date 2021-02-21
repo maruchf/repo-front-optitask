@@ -7,19 +7,23 @@ function Income() {
 			{/* Inicio del Formulario de Ingresos */}
 			<div className="container">
 				<div className="row">
-					<div className="col-md-12 d-flex mb-6 mt-5 justify-content-center text-secondary">
+					<div className="col-md-12 d-flex mt-3 mb-3 justify-content-center text-secondary">
 						<h1>Registro de Ingresos</h1>
 					</div>
-					{/* Falta agregar la propiedad onClick para agregar un Nuevo registro a la tabla. */}
-					<button type="button" className="btn btn-outline-primary mt-3 mb-3 mx-6" onClick="">
-						Nuevo Registro
-					</button>
+				</div>
+				{/* Falta agregar la propiedad onClick para agregar un Nuevo registro a la tabla. */}
+				<div className="col-7 d-flex ml-5">
+					<div className="d-flex flex-row">
+						<button type="button" className="btn btn-outline-primary mt-3 mb-3 mx-6" onClick="">
+							Nuevo Registro
+						</button>
+					</div>
 				</div>
 				<br />
 				<div className="row">
 					<div className="col-12">
 						<div className="form-group">
-							<div className="row">
+							<div className="row justify-content-center">
 								{/*---------------- Este Input me trae el calendario------------------ */}
 								<input
 									className="form-control col-5 mx-1 mb-6 border border-primary  bg-light rounded-pill"
@@ -45,7 +49,7 @@ function Income() {
 						</div>
 						<br />
 						<div className="form-group">
-							<div className="row">
+							<div className="row justify-content-center">
 								{/* ---------------Select Forma de Pago--------------------- */}
 								<select
 									className="custom-select form-select-lg bg-light mb-6 col-5 mx-1 border border-primary rounded-pill"
@@ -78,7 +82,7 @@ function Income() {
 						</div>
 						<br />
 						<div className="form-group">
-							<div className="row">
+							<div className="row justify-content-center">
 								{/* ---------------Input Monto a Registar-------------- */}
 								<input
 									className="form-control col-5 mx-1 bg-light border border-primary rounded-pill"
@@ -96,7 +100,7 @@ function Income() {
 						<br />
 						<div className="form-group">
 							{/* ----------------Select Entidad Bancaria----------------- */}
-							<div className="row">
+							<div className="row justify-content-center">
 								<select className="custom-select col-5 mb-6 mx-1 bg-light border border-primary rounded-pill">
 									<option selected>Seleccione una Entidad Bancaria</option>
 									<option value="1">Banco Central de Venezuela</option>
@@ -142,7 +146,7 @@ function Income() {
 						</div>
 						<br />
 						<div className="form-group">
-							<div className="row">
+							<div className="row justify-content-center">
 								<button type="button" className="btn btn-outline-primary mt-3 mb-3 mx-6" onClick="">
 									Agregar
 								</button>
@@ -151,94 +155,96 @@ function Income() {
 						<br />
 						{/* ----------------Tabla de los Ultimos 5 Registros de Ingresos----------------- */}
 						<div className="form-group">
-							<div className="table-responsive-sm">
-								<table className="table table-sm table-primary">
-									<thead>
-										<tr>
-											<th scope="col">#</th>
-											<th scope="col">Fecha</th>
-											<th scope="col">Forma de Pago</th>
-											<th scope="col">Método de Pago</th>
-											<th scope="col">Entidad Bancaria</th>
-											<th scope="col">Tipo de Negocio</th>
-											<th scope="col">Descripción del Ingreso</th>
-											<th scope="col">Monto en USD Dolar</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<th scope="row">1</th>
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-										</tr>
-										<tr>
-											<th scope="row">2</th>
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-										</tr>
-										<tr>
-											<th scope="row">3</th>
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-										</tr>
-										<tr>
-											<th scope="row">4</th>
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-										</tr>
-										<tr>
-											<th scope="row">5</th>
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-											<td />
-										</tr>
-									</tbody>
-								</table>
-								<div className="container-fluid">
-									<div className="row justify-content-center">
-										{/* Falta agregar la propiedad onClick para Cancelar el Registro del Valor a la Tabla. */}
-										<button
-											type="button"
-											className="btn btn-xs btn-outline-danger mt-3 mb-3"
-											onClick="">
-											Cancelar
-										</button>
-										{/* Falta agregar la propiedad onClick para Aceptar el Registro e Introducir el Valor a la Tabla. */}
-										<button
-											type="button"
-											className="btn btn-xs btn-outline-primary mt-3 mb-3"
-											onClick="">
-											Aceptar
-										</button>
+							<div className="row justify-content-center">
+								<div className="col-8 table-responsive-sm">
+									<table className="table table-sm table-primary">
+										<thead>
+											<tr>
+												<th scope="col">#</th>
+												<th scope="col">Fecha</th>
+												<th scope="col">Forma de Pago</th>
+												<th scope="col">Método de Pago</th>
+												<th scope="col">Entidad Bancaria</th>
+												<th scope="col">Tipo de Negocio</th>
+												<th scope="col">Descripción del Ingreso</th>
+												<th scope="col">Monto en USD Dolar</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row">1</th>
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+											</tr>
+											<tr>
+												<th scope="row">2</th>
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+											</tr>
+											<tr>
+												<th scope="row">3</th>
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+											</tr>
+											<tr>
+												<th scope="row">4</th>
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+											</tr>
+											<tr>
+												<th scope="row">5</th>
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+												<td />
+											</tr>
+										</tbody>
+									</table>
+									<div className="container-fluid">
+										<div className="row justify-content-center">
+											{/* Falta agregar la propiedad onClick para Cancelar el Registro del Valor a la Tabla. */}
+											<button
+												type="button"
+												className="btn btn-xs btn-outline-danger m-3"
+												onClick="">
+												Cancelar
+											</button>
+											{/* Falta agregar la propiedad onClick para Aceptar el Registro e Introducir el Valor a la Tabla. */}
+											<button
+												type="button"
+												className="btn btn-xs btn-outline-primary m-3"
+												onClick="">
+												Aceptar
+											</button>
+										</div>
 									</div>
 								</div>
 							</div>
