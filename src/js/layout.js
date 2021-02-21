@@ -3,10 +3,15 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
+import { Login } from "./views/login";
+import { Signup } from "./views/signup";
+import { Profile } from "./views/profile";
+import Income from "./views/income";
+import Expenses from "./views/expenses";
+import { EditProfile } from "./views/editprofile";
+import { Dashboard } from "./views/dashboard";
+import { DropdownList } from "./component/dropdownList";
 import injectContext from "./store/appContext";
-
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
@@ -25,11 +30,26 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/demo">
-							<Demo />
+						<Route exact path="/login">
+							<Login />
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/signup">
+							<Signup />
+						</Route>
+						<Route exact path="/dashboard">
+							<Dashboard />
+						</Route>
+						<Route exact path="/dropdownList">
+							<DropdownList />
+						</Route>
+						<Route exact path="/profile/editprofile">
+							<EditProfile />
+						</Route>
+						<Route exact path="/income">
+							<Income />
+						</Route>
+						<Route exact path="/expenses">
+							<Expenses />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

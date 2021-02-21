@@ -1,0 +1,48 @@
+.body-home {
+  background: url(../img/bg-home.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+.home-margin-card{
+  margin: 40px auto;
+  padding: 10px;
+}
+
+.background-card{
+  background-color: rgb(255, 255, 255);
+  border-radius: 5%;
+  
+}
+
+.titulo {
+    font-family: 'Cabin', sans-serif;
+    opacity: 1 !important;
+    color:#444343;
+    font-size:calc(2em + 3vw);
+    animation-duration: 1s;
+    animation-name: slidein;
+    padding-left: 20px;
+  }
+  
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+}
+
+.descripcion{
+  margin-top: 10%;
+  font-family: 'Cabin', sans-serif;
+  color: rgb(144, 146, 146);
+}
+

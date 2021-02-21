@@ -1,3 +1,25 @@
-/* 
-    General Styles
-*/
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.text-muted {
+    color: #AFABAB;
+}
+.btn {
+	border-radius: 50px;
+  &.btn-lg {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+	&.btn-primary {
+		background-color: #024873;
+	}
+}
+a.text-link {
+	color: #04BFAD;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+.card {
+	border-radius: 20px;
+}
