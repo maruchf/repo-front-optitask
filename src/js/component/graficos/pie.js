@@ -5,7 +5,7 @@ import { Pie as Grafico } from "react-chartjs-2";
 export const Pie = ({ labels, data, backgroundColor, title }) => (
 	<div className="container">
 		<div className="row mt-4">
-			<div className="col-md-6 offset-2">
+			<div className="col-md-12">
 				<div className="card">
 					<div className="card-body">
 						<Grafico
