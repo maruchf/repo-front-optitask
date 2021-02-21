@@ -6,7 +6,7 @@ import { Context } from "../store/appContext";
 export const EditProfile = props => {
 	return (
 		<div className="container bg-dark">
-            <h1>Este es el EditProfile, para editar perfil</h1>
+			<h1>Este es el EditProfile, para editar perfil</h1>
 		</div>
 	);
 };
